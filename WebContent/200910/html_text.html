@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+		
+			$(function(){
+				res ="";
+				$('input[value=html]').on('click', function(){
+					res ="";
+					res += $('p').html() + "\n";
+					alert(res);
+				})
+				
+				$('input[value=text]').on('click', function(){
+					res ="";
+					res += $('p').text() + "\n";
+					alert(res);
+				})
+				
+			})
+		
+		</script>
+		
+	</head>
+	<body>
+		<div class="box">
+			<h3>타이틀</h3>
+			<p>1<span>홍길동</span></p>
+			<p>2<span>개나리</span></p>
+			<p>3<span>진달래</span></p>
+			<input type="button" value="html">
+			<input type="button" value="text">
+			
+			<div id="result1"> </div>
+		</div>
+		
+		
+	</body>
+</html>

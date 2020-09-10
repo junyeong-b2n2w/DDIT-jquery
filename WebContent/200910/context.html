@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+		$(function(){
+			
+			psel = $('p');
+			psel.css('color','red');
+			
+			$('p', document.forms[1]).css('background', 'pink');
+		
+			$('.box div').on('click', function(){
+				$('p', this).css('color', 'blue').css('fontSize', '+=5px');
+			})
+		
+		})
+		</script>
+		
+	</head>
+	<body>
+		<div class="box">
+			<h3>타이틀</h3>
+			<input type="button" value="확인">
+			<p>sstddtdtrdgf</p>
+			<div id="result1"> 
+				<p>411111111111111111</p>
+			</div>
+			
+			<p> 오늘 점심 뭐먹지?</p>
+			<div id="result2"> 
+				<p>46ㅁㄴ4ㄹ96ㅁ4ㄴ6ㄹ4ㅁ61111111111</p>
+			</div>
+			
+			<form>
+			<p>------------</p>
+			</form>
+			<form>
+			<p>------------</p>
+			</form>
+			<form>
+			<p>------------</p>
+			</form>
+			
+			
+			
+		</div>
+		
+		
+	</body>
+</html>

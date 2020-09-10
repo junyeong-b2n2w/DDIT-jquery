@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+		
+		$(function(){
+		
+			$('.box1 input[type=button]').on('click', function(){
+				
+				ptag = $("<p id='p1' onclick='proc1(this)'> hello</p>");
+				
+				$('#result1').append(ptag);				
+			})
+			$('.box2 input[type=button]').on('click', function(){
+				ptag = $('<p></p>',{
+					'id':'p2',
+					'text' : 'hello',
+					'click' : function(){
+						$(this).css('font-size','+=5px');
+					}
+				})
+				$('#result2').append(ptag);	
+				
+			})
+			
+			$('.box3 input[type=button]').on('click', function(){
+				$('#result3').append( $('<img>',{
+					'src':'../images/cat.jpg',
+					'width':'100px',
+					'height':'100px',
+					'click' : function(){
+							$(this).css('border' , '2px solid red');
+					}
+				}))
+				
+				
+			})
+			
+			
+		})
+		
+		function proc1(tt){
+				tt.style.fontSize="30px";
+			}
+		
+		
+		
+		</script>
+		
+	</head>
+	<body>
+		<div class="box box1">
+			<h3>새로운 태그생성</h3>
+			확인 버튼을 클릭하면 p태그를 생성
+			
+			<input type="button" value="확인">
+			<div id="result1"> </div>
+		</div>
+		<div class="box box2">
+			<h3>새로운 태그생성</h3>
+			확인 버튼을 클릭하면 p태그를 생성
+			
+			<input type="button" value="확인">
+			<div id="result2"> </div>
+		</div>
+		<div class="box box3">
+			<h3>새로운 태그생성</h3>
+			이미지 추가 버튼을 클릭하면 img 태그를 생성 result3에 추가
+			이미지를 클릭하면 테두리 설정
+			
+			<input type="button" value="확인">
+			<div id="result3"> </div>
+		</div>
+		
+	</body>
+</html>
