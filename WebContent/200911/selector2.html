@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+		
+		$(()=>{
+			
+			$('#but1').on('click', ()=>{
+			
+				/*$('#result1 h3 ~ p').css('background', 'lime')
+									.css('width','200px')
+									.css('text-align', 'center');*/
+				
+				$('#result1 h3 ~ p').css({'background': 'lime', 'width':'200px','text-align': 'center'})
+					
+				$('#result1 h3 + p').css({ 'font-weight':'bold','font-size':'2.0em' });
+				
+				
+			})
+			
+			
+			
+		})
+		
+		</script>
+		
+	</head>
+	<body>
+		<div class="box">
+			<h3>타이틀</h3>
+			<input type="button" value="확인" id="but1">
+			<div id="result1">
+				<p>형제 선택자 에 대하여</p>
+	
+				<h3> 꼬마버스 타요 가족을 소개 합니다</h3>
+				
+				<p> 타요</p>
+				
+				<p> 로기</p>
+				
+				<p> 라니 </p>
+				
+				<p> 가니 </p>
+			
+			 </div>
+		</div>
+		
+		
+	</body>
+</html>
