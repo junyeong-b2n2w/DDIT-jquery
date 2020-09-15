@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+		
+			$(()=>{
+			
+				$('.box1 :button').on('click',()=>{
+					$('li:first').css('background','yellow');
+					$('li:first-child').css('border','2px solid black');
+					$('li:last').css('background','green');
+					$('li:last-child').css('border','2px dashed red');
+				})
+			
+			
+				
+				$('.box2 :button').on('click',()=>{
+					$('.box2 td:nth-child(1)').css('background','gray');
+					$('.box2 td:nth-child(2n)').css('background','lightgray');
+					$('.box2 td:nth-child(3)').css('background','blue');
+					
+				})
+				
+				
+				$('.box3 :button').on('click',()=>{
+					$('.box3 td:nth-child(1)').css('background','gray');
+					$('.box3 td:nth-child(2n)').css('background','lightgray');
+					$('.box3 td:nth-child(3)').css('background','blue');
+					$('.box3 tr:first-child td').css('background','black')
+					.css('color','white');
+				})
+				
+			})
+			
+		
+		</script>
+		
+	</head>
+	<body>
+		<div class="box box1">
+			<h3>타이틀</h3>
+			<input type="button" value="확인">
+			<div id="result1">
+			<h2>ol1</h2>
+			<ol>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			</ol>
+			<h2>ol2</h2>
+			<ol>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			</ol>
+			
+			 </div>
+		</div>
+			<div class="box box2">
+			<h3>타이틀</h3>
+			<input type="button" value="확인">
+			<div id="result2">
+			
+			<table>
+			<tr>
+				<td>이름</td>
+				<td>주소</td>
+				<td>전화번호</td>
+				<td>전화번호</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>3</td>
+			</tr>
+			
+			</table>
+			
+			 </div>
+		</div>
+			<div class="box box3">
+			<h3>타이틀</h3>
+			<input type="button" value="확인">
+			<div id="result3">
+			
+			<table>
+			<tr>
+				<td>이름</td>
+				<td>주소</td>
+				<td>전화번호</td>
+				<td>전화번호</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>3</td>
+			</tr>
+			
+			</table>
+			
+			 </div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+			
+			$(()=>{
+				$('.box1 :button').on('click',()=>{
+					$('li:first, li:last').css('background','yellow');
+					
+					$('li:eq(5)').css('background','red');
+					$('li:lt(4)').css({
+						'font-size':'1.5em','font-weight':'bold'
+					});
+					
+					
+				})
+				$('.box2 :button').on('click',()=>{
+					$('tr:even').css('background','pink');
+					$('tr:odd').css('background','gray');
+					$('tr:first').css('background','black').css('color','white');
+					
+					});
+					
+					
+				})
+
+		
+		
+		</script>
+		
+	</head>
+	<body>
+		<div class="box box1">
+			<h3>기본필터</h3>
+			<input type="button" value="확인">
+			<div id="result1">
+			<ul>
+			
+				<li> one </li>
+				
+				<li> two </li>
+				
+				<li> three </li>
+				
+				<li> four </li>
+				
+				<li> five </li>
+				
+				<li> six</li>
+				
+				<li> seven</li>
+				
+				<li>eight</li>
+				
+				<li>nine</li>
+				
+			</ul>
+						
+			 </div>
+		</div>
+		<div class="box box2">
+			<h3>기본필터</h3>
+			<input type="button" value="확인">
+			<div id="result2">
+				<table>
+					<tr>
+					<td>제목</td>
+					<td>아하알아ㅏ</td>
+					</tr>
+					<tr>
+					<td>one</td>
+					<td>123</td>
+					</tr>
+					<tr>
+					<td>two</td>
+					<td>123</td>
+					</tr>
+					<tr>
+					<td>three</td>
+					<td>123</td>
+					</tr>
+					<tr>
+					<td>four</td>
+					<td>123</td>
+					</tr>
+					<tr>
+					<td>five</td>
+					<td>123</td>
+					</tr>
+					<tr>
+					<td>six</td>
+					<td>123</td>
+					</tr>
+					<tr>
+					<td>seven</td>
+					<td>123</td>
+					</tr>
+					<tr>
+					<td>eight</td>
+					<td>123</td>
+					</tr>
+					<tr>
+					<td>nine</td>
+					<td>123</td>
+					</tr>
+				
+				</table>
+						
+			 </div>
+		</div>
+		
+	</body>
+</html>
