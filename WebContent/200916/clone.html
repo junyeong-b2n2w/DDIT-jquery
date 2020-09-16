@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+			$(function(){
+				
+				
+				
+				$('.pp').on('click',function(){
+					$(this).css('font-size','+=5px');
+					
+					size = $(this).css('font-size');
+					if(size >= "80px"){
+						$(this).off('click');
+					}
+					
+					
+				})
+				
+				$('.box input[value=clone]').on('click',()=>{
+					
+					$('#p1').clone().appendTo('#result1');
+					
+				})
+				$('.box input[value=cloneTrue]').on('click',()=>{
+					
+					$('#p2').clone(true).appendTo('#result1');
+					
+				})
+				
+			})
+		
+		</script>
+		
+	</head>
+	<body>
+		<div class="box">
+			<h3>타이틀</h3>
+			<p id="p1" class="pp">p1111111111111111111</p>
+			<p id="p2" class="pp">p2222222222222222222</p>
+			<input id="clone" type="button" value="clone">
+			<input id="cloneTrue" type="button" value="cloneTrue">
+			<div id="result1"> </div>
+		</div>
+		
+		
+	</body>
+</html>

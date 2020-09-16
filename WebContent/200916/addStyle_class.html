@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+		
+		$(function(){
+		
+			$('#add').on('click',function(){
+				$('#p1').addClass('border backcolor');
+				
+			})
+			
+			$('#remove').on('click',function(){
+				$('#p1').removeClass('border backcolor');
+				
+			})
+			
+			$('#has').on('click',function(){
+				$('#result1').text($('#p1').hasClass('border backcolor'));
+				
+			})
+			
+			$('#toggle').on('click',function(){
+				$('#p2').toggleClass('border backcolor');
+				
+			})
+			
+			$('#p3').on('mouseover', function(){
+				$('#p3').addClass('border backcolor');
+			}).on('mouseout', function(){
+				$('#p3').removeClass('border backcolor');
+			})
+			
+			
+			
+			
+			
+			
+			
+		})
+		
+		
+		</script>
+		
+		<style>
+		.border {
+			border :4px solid red;
+		}
+		.backcolor {
+			background : tomato;
+		}
+		
+		</style>
+		
+	</head>
+	<body>
+		<div class="box">
+			<h3>타이틀</h3>
+			<p id="p1" >p1111111111111111111</p>
+			<p id="p2" >p2222222222222222222</p>
+			
+			<input id="add" type="button" value="add">
+			<input id="remove" type="button" value="remove">
+			<input id="has" type="button" value="has">
+			<input id="toggle" type="button" value="toggle">
+			<div id="result1"> </div>
+		</div>
+		
+			<div class="box">
+			<h3>타이틀</h3>
+			<p id="p3" >p1111111111111111111</p>
+			<p id="p4" >p2222222222222222222</p>
+			<div id="result1"> </div>
+		</div>
+	</body>
+</html>
+
