@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+		$(function(){
+			idx=0;
+		
+		
+			$('.box1 .but').on('click',function(){
+				//새로운 버튼을 생성
+				idx++;
+				$('<button></button>', {
+					'type':'button',
+					'class':'but',
+					'text':'새로운버튼'+idx
+				}).appendTo('#result2');
+				
+			})
+			
+			$('#clear1').on('click',function(){
+				$('.box1 .but').off('click');
+			});
+			
+	
+		
+		
+			$('.box2').on('click', '.but',function(){
+				//새로운 버튼을 생성
+				idx++;
+				$('<button></button>', {
+					'type':'button',
+					'class':'but',
+					'text':'새로운버튼'+idx
+				}).appendTo('#result4');
+				
+			})
+			
+			$('#clear2').on('click',function(){
+				$('.box2').off('click');
+			});
+			
+		})
+		
+		</script>
+		
+	</head>
+	<body>
+		<div class="box box1">
+			<h3>이벤트연결 - bind</h3>
+			<div id="result1">
+				<button class="but" type="button">버튼1</button>
+				<button class="but" type="button">버튼2</button>
+			</div>
+				
+			
+			<input id="clear1" type="button" value="해제">
+			
+			
+			
+			<div id="result2"> </div>
+		</div>
+		<div class="box box2">
+			<h3>이벤트 연결 - delegate</h3>
+			<div id="result3">
+				<button class="but" type="button">버튼1</button>
+				<button class="but" type="button">버튼2</button>
+			</div>
+				
+			
+			<input id="clear2" type="button" value="해제">
+			
+			
+			
+			<div id="result4"> </div>
+		</div>
+		
+	</body>
+</html>

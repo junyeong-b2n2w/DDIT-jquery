@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+		$(function(){
+			$('#but1').on('click',function(){
+				res = "" ;
+				
+				res += "check box : " + $('#checkTest').prop('checked') + "<br>";
+				res += "option : "+ $('#selTest Option:eq(0)').prop('selected')+ "<br>";
+				res += "text : "+  $('#txtTest').prop('readonly')+ "<br>";
+				res += "button : "  + $('#runBtn').prop('disabled') + "<br>";
+			
+				$('#outbox').html(res);
+				
+			})
+			$('#but2').on('click',function(){
+				
+				$('#checkTest').prop('checked',!$('#checkTest').prop('checked'));
+				$('#selTest Option:eq(0)').prop('selected',!$('#selTest Option:eq(0)').prop('selected'));
+				$('#txtTest').prop('readonly',!$('#txtTest').prop('readonly'));
+				$('#runBtn').prop('disabled',!$('#runBtn').prop('disabled')) ;
+			
+				
+			})
+			
+			
+			$('#checkAll').on('change',function(){
+				alert(event.target.tagName)
+				$('.check').prop('checked', $(this).prop('checked'));
+				
+			})
+			
+			
+		})
+		</script>
+		
+	</head>
+	<body>
+		<div class="box">
+			<h3>타이틀</h3>
+			<input type="button" value="확인" id="but1">
+			<input type="button" value="변경" id="but2">
+			<div id="result1">
+			<form onsubmit="return false;">
+
+				체크박스(라디오버튼) : <input type="checkbox" id="checkTest" checked><br><br>
+				
+				리스트박스(select객체) :
+				
+				<select id="selTest">
+				
+				<option value="1">하나</option> <option value="2">둘</option>
+				
+				<option value="3" selected >셋</option> <option value="4">넷</option>
+				
+				</select><br><br>
+				
+				text객체
+				(readonly) : <input type="text" value="가나다" id="txtTest"><br><br>
+				
+				button객체(disabled) :
+				
+				<input type="button" value="실행" id="runBtn">
+				
+			</form>
+			
+			</div>
+		</div>
+		
+		<div class="box">
+			<h3>타이틀</h3>
+			 
+			 <div>
+			 
+			 <input type="checkbox" id="checkAll">전체선택 &nbsp;
+			 <input type="checkbox" class="check">1 &nbsp;
+			 <input type="checkbox" class="check">2 &nbsp;
+			 <input type="checkbox" class="check">3 &nbsp;
+			 <input type="checkbox" class="check">4 &nbsp;
+			 <input type="checkbox" class="check">5 &nbsp;
+			 
+			 
+			 </div>
+		</div>
+	</body>
+</html>
