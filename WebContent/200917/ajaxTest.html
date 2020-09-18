@@ -28,6 +28,57 @@
 				
 			})
 			
+			
+			xhr = new XMLHttpRequest();
+			
+			$('#ajget').on('click',function(){
+				// 입력 데이터 가져오기
+				
+				vname = $('#name3').val();
+				vid = $('#id3').val();
+				//요청
+				xhr.open('get', 'ajget.jsp?name='+vname+'&id='+vid, true);
+				xhr.send();
+				
+				//응답
+				xhr.onreadystatechange = function(){
+					if(this.readyState == 4 && this.status == 200){
+						res = this.responseText;
+						
+						$('#result3').html(res).css('background', 'yellow');
+					}
+					
+				}
+				
+			
+			})
+			
+			$('#ajpost').on('click',function(){
+				//입력한 데이터를 가져온다
+				vname = $('#name4').val();
+				vid = $('#id4').val();
+				
+				data = "name="+vname + "&id=" + vid;
+				//응답
+				xhr.onreadystatechange = function(){
+					if(this.readyState ==4 && this.status==200){
+						res = this.responseText ;
+						
+						$('#result4').html(res).css('background', 'yellow');
+					}
+				} 
+				
+				//요청
+				xhr.open("post", "ajpost.jsp", true);
+				xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				xhr.send(data);
+				
+				
+				
+				
+			})
+			
+			
 		})
 		</script>
 		
@@ -57,12 +108,14 @@
 				아이디 <input name="id3" id="id3"><br>
 				<input type="button" id="ajget" value="get전송">
 			</form>
+			<div id="result3"></div>
+			
 			<br>
 			<form id="form4">
 				이름 <input name="name4" id="name4"><br>
 				아이디 <input name="id4" id="id4"><br>
 				<input type="button" id="ajpost" value="post전송">
-			</form>
+			</form><div id="result4"></div>
 			
 		</div>
 		
