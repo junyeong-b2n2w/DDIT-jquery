@@ -7,3 +7,10 @@
 .settings/org.eclipse.wst.jsdt.ui.superType.container
 .settings/org.eclipse.wst.jsdt.ui.superType.name
 WebContent/images/
+build/classes/kr/or/ddit/buyer/vo/BuyerVO.class
+build/classes/kr/or/ddit/ibatis/config/BuildSqlMapClient.class
+build/classes/kr/or/ddit/lprod/vo/LprodVO.class
+build/classes/kr/or/ddit/member/vo/MemberVO.class
+WebContent/WEB-INF/lib/ibatis-2.3.4.726.jar
+WebContent/WEB-INF/lib/log4j-1.2.17.jar
+WebContent/WEB-INF/lib/ojdbc6.jar

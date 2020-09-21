@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href ="../css/public.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		
+		<script>
+			$(function(){
+				$('input:button').on('click', function(){
+					$.ajax({
+						url : 'buyer.jsp',
+						type : 'get',
+						dataType : 'json',
+						success : function(res){
+							code= "이름";
+							$.each(res, function(i,v){
+								code+=  "<p id='"+ res[i].id +"'>"+ res[i].name + "</p>";
+							})
+						
+							
+							
+							
+							$('#result1').html(code);
+							
+						},
+						error : function(req){
+							alert("상태 : " + req.status);
+						}
+					})
+							
+				})
+					$('p').on('click',function(){
+						$.ajax({
+							url : 'buyerEach.jsp',
+							type : 'get',
+							dataType : 'json',
+							success : function(res){
+								code= "";
+								
+								code += "id : " + res.id +"<br>";
+								code +="name : "+ res.name +"<br>";
+								code +="lgu : "+ res.lgu +"<br>";
+								code +="bank : "+ res.bank +"<br>";
+								code +="bankno : "+ res.bankno +"<br>";
+								code +="bankname : "+ res.bankname +"<br>";
+								code +="zip : "+ res.zip +"<br>";
+								code +="addr : "+ res.addr +"<br>";
+								code +="comtel : "+ res.comtel +"<br>";
+								code +="fax : "+ res.fax +"<br>";
+								
+								
+							
+								
+								
+								
+								$('#result2').html(code);
+								
+							},
+							error : function(req){
+								alert("상태 : " + req.status);
+							}
+						
+						
+					})
+				
+					
+				})
+				
+				
+				
+			})
+		
+		</script>
+		
+	</head>
+	<body>
+		<div class="box">
+			<h3>타이틀</h3>
+			<input type="button" value="확인">
+			<div id="result1"> 	</div>
+			<div id="result2"> 	</div>
+		</div>
+		
+		
+	</body>
+</html>
