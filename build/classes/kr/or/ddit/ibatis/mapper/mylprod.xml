@@ -9,4 +9,6 @@
 	<select id="selectAllLprod" resultClass="lprodVO">
 		select * from lprod
 	</select>
+	
+	
 </sqlMap>

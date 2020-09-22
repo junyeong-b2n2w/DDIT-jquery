@@ -11,7 +11,7 @@
 	</select>
 	
 	<select id="selectOneBuyer" resultClass="BuyerVO" parameterClass="String">
-		select * from buyer where BUYER_NAME = #buyer_name#
+		select * from buyer where BUYER_ID = #buyer_id#
 	</select>
 	
 </sqlMap>
