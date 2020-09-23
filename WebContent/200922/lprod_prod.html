@@ -3,8 +3,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		
+		
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		
 		<link href ="../css/public.css" rel="stylesheet">
-		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+<!-- 		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script> -->
 		
 		<script>
 			$(function(){
@@ -55,7 +62,7 @@
 							{'id':$(this).val()},
 							function(res){
 								if(res.result=="ok"){
-									code="<table>";
+									code="<table class='table table-hover table-bordered'>";
 									code+=" <tr> <td> id </td><td>"+ res.id+ "</td></tr>";
 									code+=" <tr> <td> name </td><td>"+ res.name+ "</td></tr>";
 									code+=" <tr> <td> lgu </td><td>"+ res.lgu+ "</td></tr>";
@@ -93,7 +100,6 @@
 			})
 			
 		</script>
-		
 	</head>
 	<body>
 		<div class="box">
@@ -105,20 +111,40 @@
 			조회시 검색조건은 prod_id = 선택한 항목의 id<br>
 			
 			
-			<div id="result1">
-				<select id = "lprod">
-					<!-- <option value='lprod_gu'>lprod_nm</option> -->
-				</select>
+<!-- 			<div id="result1"> -->
+<!-- 				<select id = "lprod"> -->
+<!-- 					<option value='lprod_gu'>lprod_nm</option> -->
+<!-- 				</select> -->
 				
-				<select id ="prod">
-					<!-- <option value='prod_id'>prod_name</option> -->
-				</select>
+<!-- 				<select id ="prod"> -->
+<!-- 					<option value='prod_id'>prod_name</option> -->
+<!-- 				</select> -->
 			
-			<div id="detail">
+<!-- 			<div id="detail"> -->
 			
-			</div>
-			</div>
+<!-- 			</div> -->
+<!-- 			</div> -->
 		</div>
+		<div class="box">
+			<div class="container">
+			  <h2>lprod_prod 리스트</h2>
+			  <form>
+			    <div class="form-group">
+			      <label for="lprod">lprod리스트</label>
+				      <select class="form-control" id="lprod">
+			       
+				      </select>
+			      <br>
+			      <label for="prod">prod리스트</label>
+				      <select class="form-control" id="prod">
+			      
+				      </select>
+				      <br>
+				<div id="detail"></div>	     		
+		    </div>
+	    </div>
+  </form>
+</div>
 		
 		
 	</body>
