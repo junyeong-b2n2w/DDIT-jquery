@@ -42,9 +42,11 @@ public class CheckById extends HttpServlet {
 		
 		// 3. 결과값 변수 = service 메소드 호출하기
 		String chkId = service.checkById(userId);
+		//결과값은 null이거나 id
 		
 		// 4. 결과값을 view 페이지에서 사용하기 위해 request scope에 저장한다.
 		request.setAttribute("idvalue", chkId);
+		
 		
 		// 5.view 페이지로 이동(forward/redirect) - 처리결과 출력
 		//   처리한 결과를 출력 대신 응답 데이타를 생성 - json object

@@ -8,9 +8,51 @@
 		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		 
+		
 		<link href ="../css/public.css" rel="stylesheet">
 		
 		<script>
+			$(function(){
+				$('#btnzip').on('click',function(){
+					window.open('zip.html', "우편번호 찾기", "width=500 hegiht=400");
+					
+				})
+				
+				
+				//아이디 중복 검사 버튼 클릭
+				$('#btnid').on('click',function(){
+					idval = $('#id').val().trim();
+					if(idval.length < 1){
+						alert('아이디를 입력하세요.');
+						return false;
+					}else{
+// 						$.getJSON(
+// 							'/jqpro/CheckById',
+// 							{"id":idval},
+// 							function(res){
+// 								$('#spid').html(res.sw).css('color','red');
+// 							}
+// 						);
+						$.ajax({
+							url:'/jqpro/CheckById',
+							type:'get',
+							data : {"id" : idval},
+							success: function(res){
+								$('#spid').html(res.sw).css('color','red');
+							},
+							error : function(req){
+								
+							},
+							dataType : 'json'
+						})
+					}
+					
+				});
+				
+				
+				
+			})
 		
 		</script>
 		
@@ -22,70 +64,88 @@
 	  <form class="form-horizontal" >
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="id">아이디:</label>
-	      <div class="col-sm-10">
+	      <div class="col-sm-4">
 	        <input type="text" class="form-control" id="id" placeholder="Enter id" name="mem_id">
+	        
 	      </div>
+	      <input type="button" id="btnid" class="btn btn-default" value = "아이디 중복 검사">
+	      <span id="spid"></span>
+	      <div id="idmsg" class="msg"></div>
 	    </div>
 	    
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="name">이름:</label>
-	      <div class="col-sm-10">
+	      <div class="col-sm-4">
 	        <input type="text" class="form-control" id="name" placeholder="Enter name" name="mem_name">
+	        
 	      </div>
+	      <span class="sp"></span>
+	      <div id="namemsg" class="msg"></div>
 	    </div>
 	    
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="pwd1">Password:</label>
-	      <div class="col-sm-10">          
+	      <div class="col-sm-4">          
 	        <input type="password" class="form-control" id="pwd1" placeholder="Enter password" name="mem_pass">
 	      </div>
+	      	<span class="sp"></span>
+	      <div id="passmsg" class="msg"></div>
 	    </div>
 	    
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="pwd2">Password 확인:</label>
-	      <div class="col-sm-10">          
+	      <div class="col-sm-4">          
 	        <input type="password" class="form-control" id="pwd2" placeholder="Re enter password" name="mem_pass2">
 	      </div>
+	      	<span class="sp"></span>
+	      <div id="pass2msg" class="msg"></div>
 	    </div>
 	    
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="birth">생년월일:</label>
-	      <div class="col-sm-10">          
+	      <div class="col-sm-4">          
 	        <input type="date" class="form-control" id="birth" placeholder="birthday" name="mem_bir">
 	      </div>
+	      	<span class="sp"></span>
+	      <div id="birmsg" class="msg"></div>
 	    </div>
 	    
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="email">Email:</label>
-	      <div class="col-sm-10">
+	      <div class="col-sm-4">
 	        <input type="email" class="form-control" id="email" placeholder="Enter email" name="mem_mail">
 	      </div>
+	      	<span class="sp"></span>
+	      <div id="mailmsg" class="msg"></div>
 	    </div>
 	    
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="phone">Phone:</label>
-	      <div class="col-sm-10">
+	      <div class="col-sm-4">
 	        <input type="text" class="form-control" id="phone" placeholder="Enter Phone" name="mem_hp">
 	      </div>
+	      	<span class="sp"></span>
+	      <div id="hpmsg" class="msg"></div>
 	    </div>
 	    
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="zip">우편번호:</label>
-	      <div class="col-sm-10">
+	      <div class="col-sm-4">
 	        <input type="text" class="form-control" id="zip" placeholder="Enter zip-code" name="mem_zip">
-	        <input type="button" id="zipButton" class="button" value = "우편번호 검색">
+	       
 	      </div>
+	       <input type="button" id="btnzip" class="btn btn-default" value = "우편번호 검색">
 	    </div>
 	  
 	  	<div class="form-group">
 	      <label class="control-label col-sm-2" for="addr1">주소:</label>
-	      <div class="col-sm-10">
+	      <div class="col-sm-6">
 	        <input type="text" class="form-control" id="addr1" placeholder="addr1" name="mem_add1">
 	      </div>
 	    </div>
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="addr2">상세 주소:</label>
-	      <div class="col-sm-10">
+	      <div class="col-sm-6">
 	        <input type="text" class="form-control" id="addr2" placeholder="addr2" name="mem_add2">
 	      </div>
 	    </div>
@@ -99,7 +159,8 @@
 	    </div>
 	    <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10">
-	        <button type="submit" class="btn btn-default">Submit</button>
+	        <button id="btnjoin" type="button" class="btn btn-primary btn-lg">가입신청</button>
+	        <button id="btnreset" type="reset" class="btn btn-lg">초기화</button>
 	      </div>
 	    </div>
 	  </form>
@@ -107,6 +168,6 @@
 
 		
 		
-		
+		 <script src="../js/memberreg.js"></script>
 	</body>
 </html>
