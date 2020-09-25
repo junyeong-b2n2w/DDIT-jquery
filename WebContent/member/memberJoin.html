@@ -12,11 +12,75 @@
 		
 		<link href ="../css/public.css" rel="stylesheet">
 		
+		<script src="../js/jquery.serializejson.min.js"></script>
 		<script>
 			$(function(){
-				$('#btnzip').on('click',function(){
-					window.open('zip.html', "우편번호 찾기", "width=500 hegiht=400");
+				
+				//우편번호 주소찾기 모달창
+				$('#btndong').on('click', function(){
+					dongvalue = $('#dong').val().trim();
 					
+					$.ajax({
+						url:'/jqpro/zip.do',
+						type:'post',
+						data : {'dong':dongvalue},
+						success : function(res){
+							$('#result').html(res);
+						},
+						error: function(req){
+							alert("상태 + " + req.status);
+						},
+						dataType : 'html'
+						
+					})
+					
+				})
+				
+				//모달창이 닫힐때 입력똔ㄴ ㅡ출력된 결과 값을 지운다
+				$('#myModal').on('hide.bs.modal', function(){
+					$('#dong').val("");
+					$('#result').empty();
+				})
+				
+				// 주소 결과중 하나를 선택하면
+				$('#result').on('click', '.ziptr',function(){
+					zipcode = $('td:eq(0)',this).text();
+					addr = $('td:eq(1)',this).text();
+					$('#zip').val(zipcode);
+					$('#addr1').val(addr);
+					$('#myModal').modal('hide');
+				})
+				
+				
+				
+				
+				
+				$('#btnjoin').on('click',function(){
+					//입력한 모든 값을 가져온다.
+					console.log($('#form').serializeArray());
+					console.log($('#form').serialize());
+					console.log($('#form').serializeJSON());
+					
+					$.ajax({
+						url: '/jqpro/insert.do',
+						type:'post',
+						data : $('#form').serializeArray() ,
+						success:function(res){
+							$('#spjoin').html(res.sw);
+							$('#btnreset').hide();
+						},
+						error: function(req){
+							alert("상태 : " + req.status)
+						},
+						dataType:'json'
+						
+					})
+				})
+				
+				
+				$('#btnzip').on('click',function(){
+// 					window.open('zip.html', "우편번호 찾기", "width=500 hegiht=400");
+					$('#myModal').modal('show');
 				})
 				
 				
@@ -61,7 +125,7 @@
 		
 	<div class="container">
 	  <h2>회원가입</h2>
-	  <form class="form-horizontal" >
+	  <form class="form-horizontal" id="form" >
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="id">아이디:</label>
 	      <div class="col-sm-4">
@@ -161,10 +225,35 @@
 	      <div class="col-sm-offset-2 col-sm-10">
 	        <button id="btnjoin" type="button" class="btn btn-primary btn-lg">가입신청</button>
 	        <button id="btnreset" type="reset" class="btn btn-lg">초기화</button>
+	        <span id ="spjoin"></span>
 	      </div>
 	    </div>
 	  </form>
 	</div>
+
+	<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+		
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">Modal Header</h4>
+		      </div>
+		      <div class="modal-body">
+		        <h3>우편번호찾기</h3>
+				<h2>찾는 동 이름 입력</h2>
+				<input type="text" id="dong"><input type="button" id="btndong" value="검색">
+				<div id="result"></div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		
+		  </div>
+		</div>
 
 		
 		

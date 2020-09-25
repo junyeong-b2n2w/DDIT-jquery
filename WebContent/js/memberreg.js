@@ -72,6 +72,31 @@ $('#name').on('keyup', function() {
 		regpass(this);
 	}
 });
+//이메일 정규식 체크
+$('#email').on('keyup', function() {
+	emailval = $(this).val().trim();
+	regemail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+	if (!(regemail.test(emailval))) {
+		regfail(this , "올바른 형식이 아닙니다.");
+
+	} else {
+		regpass(this);
+	}
+});
+
+//이메일 정규식 체크
+$('#birth').on('change', function() {
+	birval = new Date($(this).val().trim());
+	today = new Date();
+	
+	if ( parseInt(today.getFullYear()) - parseInt(birval.getFullYear()) + 1 < 10) {
+		regfail(this , "10살이상 가입 가능합니다.");
+
+	} else {
+		regpass(this);
+	}
+});
 
 //정규화 통과 함수
 function regpass(target) {

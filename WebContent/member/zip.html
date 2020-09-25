@@ -3,10 +3,51 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		 
+		<script>
+		$(function(){
+			$('input:button').on('click', function(){
+				dongvalue = $('#dong').val().trim();
+				
+				$.ajax({
+					url:'/jqpro/zip.do',
+					type:'post',
+					data : {'dong':dongvalue},
+					success : function(res){
+						$('#result').html(res);
+					},
+					error: function(req){
+						alert("상태 + " + req.status);
+					},
+					dataType : 'html'
+					
+				})
+				
+			})
+			
+			// 주소 결과중 하나를 선택하면
+			$('#result').on('click', '.ziptr',function(){
+				zipcode = $('td:eq(0)',this).text();
+				addr = $('td:eq(1)',this).text();
+				
+				$('#zip',opener.document).val(zipcode);
+				$('#addr1',opener.document).val(addr);
+				
+				window.close();
+				
+			})
+			
+			
+		})
+		</script>
+		
 	</head>
 	<body>
 		<h3>우편번호찾기</h3>
 		<h2>찾는 동 이름 입력</h2>
 		<input type="text" id="dong"><input type="button" value="검색">
+		<div id="result"></div>
 	</body>
 </html>
